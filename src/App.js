@@ -31,7 +31,7 @@ function Game() {
     <Fragment>
       <Header />
       {!ctxAuth.isLoggedIn && <Login />}
-      {ctxAuth.isLoggedIn && !isOver && (
+      {ctxResult.quizDatas && ctxAuth.isLoggedIn && !isOver && (
         <Fragment>
           <QuizBox />
           <AnswerBox />

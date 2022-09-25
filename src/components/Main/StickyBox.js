@@ -12,7 +12,7 @@ const StickyBox = (props) => {
     return (
       <Countdown
         onComplete={() => {
-          ctxSoal.gantiNomor(11);
+          ctxSoal.gantiNomor(totalSoal + 1);
         }}
         date={ctxSoal.timeOver}
         renderer={({ minutes, seconds }) => {

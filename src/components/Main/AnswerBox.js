@@ -3,10 +3,8 @@ import { useSoal } from "../../Context/SoalContext";
 import classes from "./AnswerBox.module.css";
 
 const AnswerBox = (props) => {
-  const dataJawab = useSoal();
-  const jawab = dataJawab.quizDatas?.find(
-    (item) => item.id === dataJawab.nomor
-  );
+  const ctxSoal = useSoal();
+  const jawab = ctxSoal.quizDatas?.find((item) => item.id === ctxSoal.nomor);
 
   return (
     <section className={classes.box}>
@@ -17,10 +15,10 @@ const AnswerBox = (props) => {
             key={answer}
             onClick={() => {
               if (answer === jawab?.correct) {
-                dataJawab.setScore((prevScore) => prevScore + 1);
+                ctxSoal.setScore((prevScore) => prevScore + 1);
               }
-              dataJawab.setAnswered((prevAnswered) => prevAnswered + 1);
-              dataJawab.gantiNomor((prevNomor) => prevNomor + 1);
+              ctxSoal.setAnswered((prevAnswered) => prevAnswered + 1);
+              ctxSoal.gantiNomor((prevNomor) => prevNomor + 1);
             }}
           >
             {answer}

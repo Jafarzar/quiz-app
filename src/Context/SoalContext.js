@@ -11,23 +11,6 @@ export const SoalContext = React.createContext({
   setAnswered: () => {},
 });
 
-function shuffle(array) {
-  let currentIndex = array.length,
-    randomIndex;
-
-  while (currentIndex != 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
-  }
-
-  return array;
-}
-
 export const SoalContextProvider = (props) => {
   const [soal, setSoal] = useState(null);
   const [curNumber, setCurNumber] = useState(1);
@@ -43,8 +26,8 @@ export const SoalContextProvider = (props) => {
       throw new Error("Something went wrong!");
     }
 
-    const quizData = [];
     const data = await response.json();
+    const quizData = [];
 
     data.results.forEach((element, index) => {
       const answersData = element.incorrect_answers;
@@ -57,7 +40,6 @@ export const SoalContextProvider = (props) => {
         correct: element.correct_answer,
       });
     });
-    console.log(quizData);
     setSoal(quizData);
   }
 
@@ -84,3 +66,20 @@ export const SoalContextProvider = (props) => {
 };
 
 export const useSoal = () => useContext(SoalContext);
+
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}
