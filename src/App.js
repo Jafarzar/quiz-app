@@ -38,7 +38,7 @@ function Game() {
           <StickyBox />
         </Fragment>
       )}
-      {isOver && <Result />}
+      {isOver && ctxAuth.isLoggedIn && <Result />}
       {ctxAuth.isLoggedIn && <Logout />}
     </Fragment>
   );

@@ -16,6 +16,7 @@ const Login = (props) => {
       <h2 className={classes.text}>Welcome</h2>
       <div>
         <input
+          required
           placeholder="Name"
           value={userName}
           onChange={(event) => setUserName(event.currentTarget.value)}

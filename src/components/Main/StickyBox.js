@@ -1,8 +1,10 @@
 import Countdown from "react-countdown";
 import { useSoal } from "../../Context/SoalContext";
+import { useAuth } from "../../Store/AuthContext";
 import classes from "./StickyBox.module.css";
 
 const StickyBox = (props) => {
+  const { userName } = useAuth();
   const ctxSoal = useSoal();
   const curSoal = ctxSoal.nomor;
   const totalSoal = ctxSoal.quizDatas?.length;
@@ -26,6 +28,7 @@ const StickyBox = (props) => {
 
   return (
     <div className={classes.sticky}>
+      <h4>Good Luck {userName}!</h4>
       <h4>
         {curSoal} / {totalSoal}
       </h4>
