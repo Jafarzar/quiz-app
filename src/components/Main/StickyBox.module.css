@@ -1,0 +1,12 @@
+.sticky {
+  color: #fb7b63;
+  position: fixed;
+  top: 30%;
+  right: 0;
+  width: fit-content;
+  background-color: #5e4ecd;
+  text-align: center;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+}
