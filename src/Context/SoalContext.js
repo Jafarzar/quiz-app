@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useAuth } from "../Store/AuthContext";
 
 export const SoalContext = React.createContext({
   quizDatas: null,
@@ -15,7 +16,7 @@ export const SoalContextProvider = (props) => {
   const [soal, setSoal] = useState(null);
   const [curNumber, setCurNumber] = useState(1);
   const [score, setScore] = useState(0);
-  const [timeOver, _] = useState(Date.now() + 120000);
+  const [timeOver, setTimeOver] = useState(Date.now() + 120000);
   const [answered, setAnswered] = useState(0);
 
   async function fecthSoalHandler() {
@@ -46,6 +47,13 @@ export const SoalContextProvider = (props) => {
   useEffect(() => {
     void fecthSoalHandler();
   }, []);
+
+  const { isLoggedIn } = useAuth();
+  useEffect(() => {
+    if (isLoggedIn) {
+      setTimeOver(Date.now() + 120000);
+    }
+  }, [isLoggedIn]);
 
   return (
     <SoalContext.Provider
