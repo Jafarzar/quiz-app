@@ -5,8 +5,8 @@
   text-align: center;
   padding: 1rem;
   margin-top: 8rem;
-  color: #fb7b63;
-  background-color: #6858ce;
+  color: #ff00ff;
+  background-color: #052656;
   border-radius: 10px;
   box-shadow: 0 1px 10px 5px rgba(0, 0, 0, 0.25);
 }
@@ -14,4 +14,3 @@
 .login h2 {
   margin: 8px 0;
 }
-
